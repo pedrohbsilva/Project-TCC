@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export const Container = styled.View`
@@ -25,25 +24,6 @@ export const ContainerButton = styled.TouchableOpacity`
 export const TextButton = styled.Text`
   color: #fff;
   font-size: 20px;
-  font-family: 'Poppins_600SemiBold';
-`;
-export const CreateAccountButton = styled.TouchableOpacity`
-  padding: 16px 0 ${16 + getBottomSpace()}px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
-export const CreateAccountButtonText = styled.Text`
-  color: #c4c4c4;
-  font-size: 18px;
-  font-family: 'Poppins_300Light';
-  margin-left: 16px;
-  text-decoration-line: underline;
-`;
-
-export const TextSignIn = styled.Text`
-  color: #ca1ba7;
-  font-size: 26px;
   font-family: 'Poppins_600SemiBold';
 `;
 

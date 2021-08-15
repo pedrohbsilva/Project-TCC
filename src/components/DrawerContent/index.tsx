@@ -20,13 +20,13 @@ const DrawerCustom = ({
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props}>
         <View style={{ flex: 1 }}>
-          <View style={{ paddingLeft: 20 }}>
+          <View style={{ paddingLeft: 20, marginBottom: 20 }}>
             <View style={{ flexDirection: 'row', marginTop: 15 }}>
-              <Avatar.Image
-                source={{
-                  uri: 'https://gravatar.com/avatar/fe4ed298cf27be4912740be16b60b407?s=400&d=robohash&r=x',
-                }}
+              <Avatar.Text
+                label={user.name.substring(0, 1)}
+                color="#61cf7e"
                 size={50}
+                style={{ backgroundColor: '#ebe694' }}
               />
               <View style={{ marginLeft: 15, flexDirection: 'column' }}>
                 <TitlePaper>{user.name}</TitlePaper>
@@ -36,24 +36,20 @@ const DrawerCustom = ({
         </View>
         <Drawer.Section>
           <DrawerItem
-            icon={({ color, size }) => (
-              <Feather name="home" size={size} color={color} />
-            )}
+            icon={() => <Feather name="home" size={20} color="#ffffff" />}
             label="Home"
+            labelStyle={{ color: '#ffffff' }}
             onPress={() => {
               props.navigation.navigate('Home');
             }}
           />
         </Drawer.Section>
       </DrawerContentScrollView>
-      <Drawer.Section
-        style={{ marginBottom: 15, borderColor: '#f4f4f4', borderWidth: 1 }}
-      >
+      <Drawer.Section style={{ marginBottom: 15 }}>
         <DrawerItem
-          icon={({ color, size }) => (
-            <Feather name="log-out" size={size} color={color} />
-          )}
+          icon={() => <Feather name="log-out" size={20} color="#ffffff" />}
           label="Sair"
+          labelStyle={{ color: '#ffffff' }}
           onPress={() => signOut()}
         />
       </Drawer.Section>

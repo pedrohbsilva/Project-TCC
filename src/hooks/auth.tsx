@@ -5,8 +5,8 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../utils/api';
 import { AuthContextData, AuthProviderProps, AuthState } from '../interfaces';
 
@@ -26,7 +26,7 @@ export const AuthProvider = ({
       ]);
 
       if (token[1] && user[1]) {
-        api.defaults.headers.Authorization = `Bearer ${token[1]}`;
+        api.defaults.headers.Authorization = `${token[1]}`;
         setData({ token: token[1], user: JSON.parse(user[1]) });
       }
       setLoading(false);
@@ -46,7 +46,7 @@ export const AuthProvider = ({
       ['contaSolar:user', JSON.stringify(user)],
     ]);
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.Authorization = token;
 
     setData({ token, user });
   }, []);
