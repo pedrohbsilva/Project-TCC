@@ -5,6 +5,7 @@ export const TitlePaper = styled(Title)`
   font-size: 20px;
   margin-top: 3px;
   font-family: 'Poppins_600SemiBold';
+  color: white;
 `;
 
 export const Row = styled.View`
@@ -24,9 +25,11 @@ export const ParagraphPaper = styled(Paragraph)`
   font-size: 14px;
   line-height: 14px;
   font-family: 'Poppins_300Light';
+  color: white;
 `;
 export const CaptionPaper = styled(Caption)`
   font-size: 14px;
   line-height: 18px;
   font-family: 'Poppins_300Light';
+  color: white;
 `;

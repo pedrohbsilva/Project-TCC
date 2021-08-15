@@ -35,14 +35,12 @@ const SignIn = (): React.ReactElement => {
           email: data.email,
           password: data.password,
         });
-        setIsLoading(false);
         showMessage({
           message: 'Logado com sucesso!',
           type: 'success',
           duration: 3000,
         });
       } catch (error) {
-        setIsLoading(false);
         showMessage({
           message: 'Falha ao logar',
           description: 'Email e/ou senha inválidos',
@@ -50,6 +48,7 @@ const SignIn = (): React.ReactElement => {
           duration: 5000,
         });
       }
+      setIsLoading(false);
     },
     [signIn],
   );
