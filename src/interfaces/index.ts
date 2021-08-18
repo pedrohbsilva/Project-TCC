@@ -1,4 +1,5 @@
 import { TextInputProps } from 'react-native';
+import Animated from 'react-native-reanimated';
 
 export interface InputProps extends TextInputProps {
   name: string;
@@ -106,4 +107,15 @@ export interface AuthProviderProps {
 
 export interface AppProviderProps {
   children: React.ReactNode;
+}
+
+export interface DrawerStyleProps {
+  drawerAnimationStyle: DrawerProps;
+}
+
+export interface DrawerProps {
+  borderRadius: Animated.Node<number>;
+  transform: {
+    scale: Animated.Node<number>;
+  }[];
 }

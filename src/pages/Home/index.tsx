@@ -1,5 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   SafeAreaView,
   KeyboardAvoidingView,
@@ -7,40 +6,24 @@ import {
   View,
   RefreshControl,
   ActivityIndicator,
-  StyleSheet,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Animated from 'react-native-reanimated';
-import MenuIcon from '../../components/Menu';
 import RealTimeGraphic from '../../components/RealTimeGraphic';
 import { useAuth } from '../../hooks/auth';
-import { RTPagination, LastDaysProps } from '../../interfaces';
+import {
+  RTPagination,
+  LastDaysProps,
+  DrawerStyleProps,
+} from '../../interfaces';
 import api from '../../utils/api';
 import { Container, ListOptions } from './styles';
 import HeaderComponent from '../../components/Header';
 import LastDaysGraphic from '../../components/LastDaysGraphic';
 
-interface DrawerStyleProps {
-  drawerAnimationStyle: DrawerProps;
-}
-
-interface DrawerProps {
-  borderRadius: Animated.Node<number>;
-  transform: {
-    scale: Animated.Node<number>;
-  }[];
-}
-
 const Home = ({
   drawerAnimationStyle,
 }: DrawerStyleProps): React.ReactElement => {
-  const styles = StyleSheet.create({
-    wrapper: {
-      height: 500,
-    },
-  });
-
-  const navigation = useNavigation();
   const { user } = useAuth();
   const [RTItems, setRTItems] = useState<RTPagination[]>([]);
   const [lastDaysItems, setLastDaysItems] = useState<LastDaysProps[]>([]);
@@ -51,16 +34,10 @@ const Home = ({
     return new Promise(resolve => setTimeout(resolve, timeout));
   };
 
-  const onRefresh = React.useCallback(() => {
+  const onRefresh = useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
   }, []);
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => <MenuIcon />,
-    });
-  }, [navigation]);
 
   useEffect(() => {
     const load = async () => {
@@ -120,7 +97,7 @@ const Home = ({
                   </View>
                 ) : (
                   <Swiper
-                    style={styles.wrapper}
+                    style={{ height: 500 }}
                     showsButtons={false}
                     activeDotColor="#61cf7e"
                   >
