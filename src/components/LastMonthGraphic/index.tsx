@@ -4,21 +4,22 @@ import { Dimensions } from 'react-native';
 import { BarChart } from 'react-native-chart-kit';
 import { LastDaysGraphicProps } from '../../interfaces';
 import {
-  LastDaysGraphicContainer,
+  LastMonthGraphicContainer,
   Row,
   Column,
   TextTitle,
   TextSub,
 } from './styles';
 
-const LastDaysGraphic = ({
+const LastMonthGraphic = ({
   data,
 }: LastDaysGraphicProps): React.ReactElement => {
   // const totalGeneratedOnTheDay =
   //   (data[data.length - 1].totalGerado - data[0].totalGerado) / 1000;
   // const totalGenerated = data[data.length - 1].totalGerado / 1000;
+
   return (
-    <LastDaysGraphicContainer>
+    <LastMonthGraphicContainer>
       <BarChart
         data={{
           labels: data.map(
@@ -33,20 +34,19 @@ const LastDaysGraphic = ({
             },
           ],
         }}
-        fromZero
+        showValuesOnTopOfBars
         width={Dimensions.get('window').width - 30}
         height={300}
         verticalLabelRotation={-30}
         yAxisLabel=""
         yAxisSuffix=" KW"
-        withInnerLines
         chartConfig={{
           backgroundGradientFrom: '#ebe694',
           backgroundGradientTo: '#61cf7e',
           fillShadowGradient: 'green',
           fillShadowGradientOpacity: 1,
           decimalPlaces: 0,
-          barPercentage: 0.15,
+          barPercentage: 0.5,
           color: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
           propsForLabels: {
@@ -75,8 +75,8 @@ const LastDaysGraphic = ({
           <TextSub>Total Gerado (MWh)</TextSub>
         </Column>
       </Row> */}
-    </LastDaysGraphicContainer>
+    </LastMonthGraphicContainer>
   );
 };
 
-export default LastDaysGraphic;
+export default LastMonthGraphic;

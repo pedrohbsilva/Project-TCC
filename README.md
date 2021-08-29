@@ -7,7 +7,10 @@ APP desenvolvido para meu TCC, que irá mostrar dados de geração eletríca e d
 Faça o clone via github do branch main, tenha o nodejs, yarn instalados na sua máquina.
 
 Crie o arquivo .env a partir do .envsample e utilize sua API similar a do meu projeto.
-use o comando yarn install para instalar as demais dependências.
+use prefencialmente yarn para instalar as demais dependências.
+
+É necessário instalar também o expo, caso não possua na sua máquina, o comando é
+yarn global add expo-cli
 
 ## Melhorias
 - Criar mais animações
