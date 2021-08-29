@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Image } from 'react-native';
 import { Header, Left, Center, Right } from './styles';
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/splash.png';
 import MenuIcon from '../Menu';
 
 const HeaderComponent = (): React.ReactElement => {
@@ -11,7 +11,7 @@ const HeaderComponent = (): React.ReactElement => {
         <MenuIcon />
       </Left>
       <Center>
-        <Image source={Logo} style={{ height: 52, width: 200 }} />
+        <Image source={Logo} style={{ height: 70, width: 200 }} />
       </Center>
       <Right />
     </Header>

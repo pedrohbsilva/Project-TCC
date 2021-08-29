@@ -11,7 +11,7 @@ import { FormHandles } from '@unform/core';
 import { showMessage } from 'react-native-flash-message';
 import Input from '../../components/Input';
 import { useAuth } from '../../hooks/auth';
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/splash.png';
 import {
   Container,
   ContainerButton,
